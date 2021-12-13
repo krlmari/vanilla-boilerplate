@@ -10,6 +10,7 @@
     "lint": "eslint ./src/**/*.ts",
     "lint:css": "npx stylelint ./src/**/*.scss --fix",
     "format": "prettier --config .prettierrc --write ./src/**/*.{ts,scss}",
+    "generate": "ts-node ./scripts/generate.ts",
     "postinstall": "husky install"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@ import commonConfig from './webpack.config';
 const productionConfig: Configuration = {
     mode: 'production',
     output: {
-        filename: '[name].bundle-[chunkhash:8].js',
+        filename: 'js/[name].bundle-[chunkhash:8].js',
     },
     optimization: {
         splitChunks: {
@@ -30,7 +30,7 @@ const productionConfig: Configuration = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].[chunkhash:8].css',
+            filename: 'css/[name].[chunkhash:8].css',
         }),
     ],
 };

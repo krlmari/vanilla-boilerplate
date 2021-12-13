@@ -2,6 +2,16 @@ import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 
 import commonConfig from './webpack.config';
+import pages from './pages';
+
+const PORT = 3000;
+
+console.log('');
+console.log('>> PAGES COMPLETED <<');
+pages.pages.forEach((page) =>
+    console.log(`— http://localhost:${PORT}/${page}.html`)
+);
+console.log('');
 
 const developmentConfig: Configuration = {
     mode: 'development',
@@ -22,7 +32,7 @@ const developmentConfig: Configuration = {
         ],
     },
     devServer: {
-        port: 9000,
+        port: PORT,
         hot: true,
         open: true,
     },

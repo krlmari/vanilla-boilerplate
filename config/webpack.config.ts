@@ -5,13 +5,6 @@ import ESLintWebpackPlugin from 'eslint-webpack-plugin';
 import paths from './paths';
 import pages from './pages';
 
-console.log('');
-console.log('>> PAGES COMPLETED <<');
-pages.pages.forEach((page) =>
-    console.log(`— http://localhost:9000/${page}.html`)
-);
-console.log('');
-
 const config: Configuration = {
     entry: {
         common: `${paths.common}/index.ts`,
