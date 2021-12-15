@@ -9,7 +9,11 @@ import {
     pageTs,
     templateScss,
 } from './templates';
-import { generateScssImports, generateTsImports } from './utils';
+import {
+    generatePugImports,
+    generateScssImports,
+    generateTsImports,
+} from './utils';
 
 const pageTypes = ['page', 'p'];
 const componentTypes = ['component', 'c'];
@@ -56,12 +60,17 @@ if (type) {
                                             paths.components,
                                             templateScss(name),
                                             () =>
-                                                generateScssImports(() => {
-                                                    console.log('');
-                                                    console.log(
-                                                        `Компонент ${name} успешно сгенерирован!`
-                                                    );
-                                                    console.log('');
+                                                generatePugImports((err) => {
+                                                    if (!err)
+                                                        generateScssImports(
+                                                            () => {
+                                                                console.log('');
+                                                                console.log(
+                                                                    `Компонент ${name} успешно сгенерирован!`
+                                                                );
+                                                                console.log('');
+                                                            }
+                                                        );
                                                 })
                                         );
                                     }

@@ -2,11 +2,12 @@ import fs from 'fs';
 
 import paths from '../config/paths';
 
+const pageTsPath = `${paths.common}/views.ts`;
+const componentsPugPath = `${paths.common}/pug/components.pug`;
 const componentsScssPath = `${paths.styles}/_components.scss`;
 const pageScssPath = `${paths.styles}/_pages.scss`;
-const pageTsPath = `${paths.common}/views.ts`;
 
-export const generateTsImports = (cb?: (e: NodeJS.ErrnoException) => void) => {
+export const generateTsImports = (cb: (e: NodeJS.ErrnoException) => void) => {
     const pages = fs.readdirSync(paths.pages);
 
     const newViewsImports = [
@@ -21,9 +22,20 @@ export const generateTsImports = (cb?: (e: NodeJS.ErrnoException) => void) => {
     fs.writeFile(pageTsPath, newViewsImports, cb);
 };
 
-export const generateScssImports = (
-    cb?: (e: NodeJS.ErrnoException) => void
-) => {
+export const generatePugImports = (cb: (e: NodeJS.ErrnoException) => void) => {
+    const components = fs.readdirSync(paths.components);
+
+    const componentsPugImports = [
+        ...components.map(
+            (component) => `include ../../components/${component}/${component}`
+        ),
+        '',
+    ].join('\n');
+
+    fs.writeFile(componentsPugPath, componentsPugImports, cb);
+};
+
+export const generateScssImports = (cb: (e: NodeJS.ErrnoException) => void) => {
     const components = fs.readdirSync(paths.components);
     const pages = fs.readdirSync(paths.pages);
 
