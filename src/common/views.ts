@@ -1,4 +1,7 @@
-import index from '@pages/index/index';
 import company from '@pages/company/company';
+import index from '@pages/index/index';
 
-export default [index, company];
+export default [
+    company,
+    index,
+];

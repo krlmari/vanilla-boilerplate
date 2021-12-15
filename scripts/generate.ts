@@ -9,6 +9,7 @@ import {
     pageTs,
     templateScss,
 } from './templates';
+import { generateScssImports, generateTsImports } from './utils';
 
 const pageTypes = ['page', 'p'];
 const componentTypes = ['component', 'c'];
@@ -18,12 +19,19 @@ const type = process.argv[2];
 const name = process.argv[3];
 const title = process.argv[4];
 
-export const generateFile = (filePath: string, template: ITemplate) => {
+export const generateFile = (
+    filePath: string,
+    template: ITemplate,
+    cb?: () => void
+) => {
     const path = `${filePath}/${name}/${name}.${template.ext}`;
 
-    fs.writeFile(path, template.tpl, () =>
-        console.log(`${name}.${template.ext} успешно создан!`)
-    );
+    fs.writeFile(path, template.tpl, (err) => {
+        if (!err) {
+            console.log(`|- ${name}.${template.ext}`);
+            cb?.();
+        }
+    });
 };
 
 if (type) {
@@ -34,9 +42,32 @@ if (type) {
 
                 if (!components.includes(name)) {
                     fs.mkdir(`${paths.components}/${name}`, () => {
-                        generateFile(paths.components, componentTs(name));
-                        generateFile(paths.components, componentPug(name));
-                        generateFile(paths.components, templateScss(name));
+                        console.log('');
+                        console.log(`src/components/${name}`);
+                        generateFile(
+                            paths.components,
+                            componentTs(name),
+                            () => {
+                                generateFile(
+                                    paths.components,
+                                    componentPug(name),
+                                    () => {
+                                        generateFile(
+                                            paths.components,
+                                            templateScss(name),
+                                            () =>
+                                                generateScssImports(() => {
+                                                    console.log('');
+                                                    console.log(
+                                                        `Компонент ${name} успешно сгенерирован!`
+                                                    );
+                                                    console.log('');
+                                                })
+                                        );
+                                    }
+                                );
+                            }
+                        );
                     });
                 } else {
                     console.log(`Компонент '${name}' уже существует.`);
@@ -46,10 +77,35 @@ if (type) {
                     const pages = fs.readdirSync(paths.pages);
 
                     if (!pages.includes(name)) {
+                        console.log('');
+                        console.log(`src/pages/${name}`);
                         fs.mkdir(`${paths.pages}/${name}`, () => {
-                            generateFile(paths.pages, pageTs(name));
-                            generateFile(paths.pages, pagePug(name, title));
-                            generateFile(paths.pages, templateScss(name));
+                            generateFile(paths.pages, pageTs(name), () => {
+                                generateFile(
+                                    paths.pages,
+                                    pagePug(name, title),
+                                    () => {
+                                        generateFile(
+                                            paths.pages,
+                                            templateScss(name),
+                                            () => {
+                                                generateTsImports((err) => {
+                                                    if (!err)
+                                                        generateScssImports(
+                                                            () => {
+                                                                console.log('');
+                                                                console.log(
+                                                                    `Страница ${name} успешно сгенерирована!`
+                                                                );
+                                                                console.log('');
+                                                            }
+                                                        );
+                                                });
+                                            }
+                                        );
+                                    }
+                                );
+                            });
                         });
                     } else {
                         console.log(`Страница '${name}' уже существует.`);

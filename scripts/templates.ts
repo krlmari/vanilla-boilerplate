@@ -34,7 +34,6 @@ export const componentPug = (name: string): ITemplate => {
 
 export const pageTs = (name: string): ITemplate => {
     const tpl = `import { IView, IViewData } from '@barba/core';
-import { findComponents } from '@common/utils';
 
 export default {
     namespace: '${name}',
