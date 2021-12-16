@@ -2,10 +2,10 @@ import fs from 'fs';
 
 import paths from '../config/paths';
 
-const pageTsPath = `${paths.common}/views.ts`;
+const viewsTsPath = `${paths.common}/views.ts`;
 const componentsPugPath = `${paths.common}/pug/components.pug`;
 const componentsScssPath = `${paths.styles}/_components.scss`;
-const pageScssPath = `${paths.styles}/_pages.scss`;
+const pagesScssPath = `${paths.styles}/_pages.scss`;
 
 export const generateTsImports = (cb: (e: NodeJS.ErrnoException) => void) => {
     const pages = fs.readdirSync(paths.pages);
@@ -19,7 +19,7 @@ export const generateTsImports = (cb: (e: NodeJS.ErrnoException) => void) => {
         '',
     ].join('\n');
 
-    fs.writeFile(pageTsPath, newViewsImports, cb);
+    fs.writeFile(viewsTsPath, newViewsImports, cb);
 };
 
 export const generatePugImports = (cb: (e: NodeJS.ErrnoException) => void) => {
@@ -52,6 +52,6 @@ export const generateScssImports = (cb: (e: NodeJS.ErrnoException) => void) => {
     ].join('\n');
 
     fs.writeFile(componentsScssPath, componentsScssImports, (err) => {
-        if (!err) fs.writeFile(pageScssPath, pagesScssImports, cb);
+        if (!err) fs.writeFile(pagesScssPath, pagesScssImports, cb);
     });
 };
