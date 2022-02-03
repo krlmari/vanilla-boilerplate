@@ -1,7 +1,7 @@
 import barba, { IViewData } from '@barba/core';
 
 // Styles
-import '@styles/globals.scss';
+import '@common/scss/globals.scss';
 
 import views from '@common/views';
 import { findComponent } from '@common/utils';

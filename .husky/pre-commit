@@ -1,7 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn generate:paths
 yarn format
 yarn lint
 yarn lint:css

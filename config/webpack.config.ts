@@ -9,7 +9,6 @@ const config: Configuration = {
     entry: {
         common: `${paths.common}/index.ts`,
         vendors: '@barba/core',
-        ...pages.entries,
     },
     output: {
         filename: '[name].bundle.js',
@@ -40,7 +39,6 @@ const config: Configuration = {
             '@components': paths.components,
             '@layouts': paths.layouts,
             '@pages': paths.pages,
-            '@styles': paths.styles,
         },
     },
     plugins: [

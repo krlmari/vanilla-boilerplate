@@ -7,14 +7,6 @@ const pages = fs
     .readdirSync(paths.pages)
     .filter((page) => !/^\.[a-zA-Z_]/.test(page));
 
-const entries = pages.reduce(
-    (entry, page) => ({
-        ...entry,
-        [page]: `${paths.pages}/${page}/${page}.ts`,
-    }),
-    {}
-);
-
 const plugins = pages.map(
     (page) =>
         new HtmlWebpackPlugin({
@@ -26,6 +18,5 @@ const plugins = pages.map(
 
 export default {
     pages,
-    entries,
     plugins,
 };
