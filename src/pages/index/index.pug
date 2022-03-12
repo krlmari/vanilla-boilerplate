@@ -1,8 +1,9 @@
 extends ../../layouts/base
+include ../../components/counter/counter
 
 block head
     title Home
 
 block content
-    main(data-barba="container" data-barba-namespace="index")
-        h1 Home
+    main(data-barba="container" data-barba-namespace="index").index
+        +counter
