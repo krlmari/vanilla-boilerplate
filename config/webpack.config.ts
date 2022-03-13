@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ESLintWebpackPlugin from 'eslint-webpack-plugin';
+import HtmlWebpackInlineSVGPlugin from 'html-webpack-inline-svg-plugin';
 
 import paths from './paths';
 import pages from './pages';
@@ -17,13 +18,29 @@ const config: Configuration = {
     module: {
         rules: [
             {
+                test: /\.(js|jsx|ts|tsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader',
+            },
+            {
                 test: /\.pug$/,
                 use: 'simple-pug-loader',
             },
             {
-                test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
-                use: 'babel-loader',
+                test: /\.svg$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'assets/icons',
+                },
+            },
+            {
+                test: /\.(png|jpg|jpeg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[contenthash].[ext]',
+                    outputPath: 'assets/images',
+                },
             },
             {
                 test: /\.tsx?$/,
@@ -39,14 +56,13 @@ const config: Configuration = {
             '@components': paths.components,
             '@layouts': paths.layouts,
             '@pages': paths.pages,
-            '@styles': paths.styles
+            '@styles': paths.styles,
         },
     },
     plugins: [
         ...pages.plugins,
-        new ESLintWebpackPlugin({
-            extensions: ['ts'],
-        }),
+        new ESLintWebpackPlugin({ extensions: ['ts'] }),
+        new HtmlWebpackInlineSVGPlugin({ runPreEmit: true }),
         new CleanWebpackPlugin(),
     ],
 };

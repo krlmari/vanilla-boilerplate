@@ -1,0 +1,13 @@
+mixin img(props)
+    img(src=require(`../../assets${props.src}`).default alt=props.alt || '')&attributes(attributes)
+
+mixin svg(id)
+    img(inline src=`src/assets/icons/${id}.svg`)&attributes(attributes)
+
+mixin picture(props)
+    picture.picture(class= props.classList ? props.classList : '')&attributes(attributes)
+        if (props.sources)
+            each source in props.sources
+                source(srcset = source.srcset media=`(min-width: ${source.breakpoint}px)` || null)
+        if (props.img)
+            +img(props.img)
