@@ -35,6 +35,9 @@ class Counter extends RootComponent<HTMLDivElement> {
                 const value = this.count$.getValue() + (isPrev ? -1 : 1);
                 this.setCount(value);
                 this.clickCount$.next(this.clickCount$.getValue() + 1);
+
+                // Результат счётчика
+                console.log(value);
             }
         );
 
