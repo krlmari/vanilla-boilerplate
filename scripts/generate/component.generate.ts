@@ -13,31 +13,35 @@ import {
     generateFromTemplate,
     addImport,
     removeImport,
+    splitPath,
 } from './utils';
 
 export const componentGenerate = (event: EventEnum, dir: string) => {
-    const name = dir.split('/').slice(-1)[0];
+    const splitDir = splitPath(dir);
+    const fsPath = splitDir.join('/');
+    const name = splitDir.slice(-1)[0];
+
     const nameCamelCase = camelcase(name);
     const namePascalCase = camelcase(name, { pascalCase: true });
-    const pathToFolder = dir.slice(dir.indexOf('components'));
+    const pathToFolder = fsPath.slice(fsPath.indexOf('components'));
     const componentsScss = path.join(paths.styles, '_components.scss');
     const importScss = `@import '../${pathToFolder}/${name}';\n`;
 
     if (event === EventEnum.AddDir) {
         generateFile(
-            path.join(dir, `${name}.pug`),
+            path.join(fsPath, `${name}.pug`),
             generateFromTemplate(componentPug, {
                 name: nameCamelCase,
                 className: name,
             }),
             () =>
                 generateFile(
-                    path.join(dir, `${name}.scss`),
+                    path.join(fsPath, `${name}.scss`),
                     generateFromTemplate(componentScss, { name }),
                     () =>
                         addImport(componentsScss, importScss, () =>
                             generateFile(
-                                path.join(dir, `${name}.ts`),
+                                path.join(fsPath, `${name}.ts`),
                                 generateFromTemplate(componentTs, {
                                     name: namePascalCase,
                                 }),

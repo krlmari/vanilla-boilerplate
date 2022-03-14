@@ -4,6 +4,8 @@ import { compile } from 'handlebars';
 
 import paths from '../../config/paths';
 
+export const splitPath = (path: string) => path.split(/\\|\//);
+
 export const logError = (error: NodeJS.ErrnoException) => console.log(error.message);
 
 export const generateFile = (
