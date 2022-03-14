@@ -1,41 +1,38 @@
 .counter {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    &__value {
-        width: 56px;
-        height: 56px;
-        margin: 0 4px;
-        background: #f4f5f9;
-        border: 2px solid #303e58;
-        border-radius: 100%;
-        text-align: center;
-        margin-right: 52px;
-        margin-left: 52px;
+  &__value {
+    width: 56px;
+    height: 56px;
+    margin: 0 4px;
+    background: #f4f5f9;
+    border: 2px solid #303e58;
+    border-radius: 100%;
+    text-align: center;
+    margin-right: 52px;
+    margin-left: 52px;
+    font-family: 'Cera Pro', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+  }
 
-        font-family: 'Cera Pro';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-    }
+  &__clicks {
+    text-align: center;
+    margin-top: 10px;
+  }
 
-    &__clicks {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    &__button {
-        color: white;
-        border: none;
-        cursor: pointer;
-
-        width: 41px;
-        height: 41px;
-        border-radius: 100%;
-        background-color: #3877ee;
-
-        font-weight: bold;
-        font-size: 20px;
-        font-family: 'Cera Pro';
-    }
+  &__button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+    background-color: #3877ee;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Cera Pro', sans-serif;
+  }
 }

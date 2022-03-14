@@ -1,6 +1,5 @@
 extends ../../layouts/base
 include ../../components/counter/counter
-include ../../components/swiper/swiper
 
 block head
     title Home
@@ -8,5 +7,4 @@ block head
 block content
     main(data-barba="container" data-barba-namespace="index").index
         // +svg('code').index__icon
-        +swiper
         +counter
