@@ -1,0 +1,42 @@
+.main {
+    text-align: center;
+
+    &__text {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        color: #42567a;
+        margin-bottom: 72px;
+    }
+
+    &__counter {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 128px;
+        line-height: 150px;
+        color: #42567a;
+        margin-bottom: 108px;
+    }
+
+    &__button {
+        border: none;
+        background-color: #3877ee;
+        border-radius: 30px;
+        padding: 20px 40px;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: opacity 1s;
+    }
+    &__button:hover {
+        opacity: 0.6;
+    }
+}

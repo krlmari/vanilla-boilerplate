@@ -1,4 +1,5 @@
 extends ../../layouts/base
+include ../../components/main/main
 include ../../components/counter/counter
 include ../../components/swiper/swiper
 
@@ -8,6 +9,8 @@ block head
 block content
     main(data-barba="container" data-barba-namespace="index").index
         // +svg('code').index__icon
-        .slider
+        //.slider
             +swiper
-        +counter
+        //+counter
+        +main 
+
