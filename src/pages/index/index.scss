@@ -1,26 +1,25 @@
 .index {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f5f9;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f5f9;
 
-    &__icon {
-        width: 80px;
-        height: 80px;
-        color: #afafaf;
-        margin-bottom: 20px;
-    }
+  &__icon {
+    width: 80px;
+    height: 80px;
+    color: #afafaf;
+    margin-bottom: 20px;
+  }
 }
 
 .slider {
-    position: relative;
-
-    width: 100vw;
-    height: 80%;
-    padding: 0 20vw;
-    padding-bottom: 52px;
-    padding-top: 77px;
+  position: relative;
+  width: 100vw;
+  height: 80%;
+  padding: 0 20vw;
+  padding-bottom: 52px;
+  padding-top: 77px;
 }
