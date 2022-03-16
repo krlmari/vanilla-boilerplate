@@ -23,7 +23,7 @@ class Counter extends RootComponent<HTMLDivElement> {
             `.${this.name}__button-next`
         );
 
-        this.clickCount = this.node.querySelector(`.${this.name}__clicks`);
+        this.clickCount = this.node.querySelector(`.${this.name}__value`);
 
         fromEvent([this.prevButton, this.nextButton], 'click').subscribe(
             (target) => {
