@@ -2,15 +2,13 @@ extends ../../layouts/base
 include ../../components/main/main
 include ../../components/counter/counter
 include ../../components/swiper/swiper
+include ../../components/modal/modal
 
 block head
     title Home
 
 block content
     main(data-barba="container" data-barba-namespace="index").index
-        // +svg('code').index__icon
-        //.slider
-            +swiper
-        //+counter
-        +main 
+        +main
+        +modal
 

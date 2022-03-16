@@ -1,0 +1,16 @@
+.modal {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f5f9;
+    z-index: -1;
+
+    &--is-visible {
+        z-index: 9;
+        visibility: visible;
+        opacity: 1;
+    }
+}

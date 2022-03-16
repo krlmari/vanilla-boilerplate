@@ -1,0 +1,12 @@
+include ../swiper/swiper
+include ../counter/counter
+include ../button/button
+
+mixin modal(props)
+    div.modal&attributes(attributes)
+        +button("Закрыть")(class="modal__button-close") 
+        .slider
+            +swiper 
+        .is-center
+            +counter
+        

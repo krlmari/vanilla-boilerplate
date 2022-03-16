@@ -1,13 +1,14 @@
 import RootComponent from '@common/rootComponent';
 import { IRootComponent } from '@common/types';
 
-class Main extends RootComponent {
-    readonly openModalBtn: HTMLButtonElement;
-    readonly modal: HTMLDivElement;
-
+class Modal extends RootComponent {
     constructor(props: IRootComponent) {
         super(props);
     }
+
+    toggleOpen() {
+        this.node.classList.toggle(`${this.name}--is-visible`);
+    }
 }
 
-export default Main;
+export default Modal;
