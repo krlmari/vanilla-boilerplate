@@ -1,38 +1,40 @@
+@import '../../styles/colors.scss';
+
 .swiper {
-  position: static;
+    position: static;
 
-  &__wrapper {
-    height: 100%;
-  }
+    &__wrapper {
+        height: 100%;
+    }
 
-  &__slide-content {
-    background-color: blueviolet;
-    height: 90%;
-    width: 100%;
-  }
+    &__slide-content {
+        background-color: blueviolet;
+        height: 90%;
+        width: 100%;
+    }
 }
 
 .swiper-slide {
-  height: 720px;
+    height: 720px;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  margin: 0 5vw;
-  position: absolute;
-  top: 40%;
-  width: 60px;
-  height: 60px;
-  border-radius: 60px;
-  background-color: white;
-  border: none;
-  color: #3877ee;
-  font-size: 24px;
-  box-shadow: 0 0 15px rgb(56 119 238 / 10%);
+    margin: 0 5vw;
+    position: absolute;
+    top: 40%;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: $white;
+    border: none;
+    color: $color-button;
+    font-size: 24px;
+    box-shadow: 0 0 15px rgb(56 119 238 / 10%);
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 15px;
-  font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
 }

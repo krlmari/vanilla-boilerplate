@@ -1,19 +1,8 @@
-.button {
-  border: none;
-  background-color: #3877ee;
-  border-radius: 30px;
-  padding: 20px 40px;
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #fff;
-  margin-top: 32px;
+@import '../../styles/colors.scss';
 
-  &--open-modal-btn {
+.button {
     border: none;
-    background-color: #3877ee;
+    background-color: $color-button;
     border-radius: 30px;
     padding: 20px 40px;
     font-family: Roboto, sans-serif;
@@ -21,7 +10,10 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: #fff;
-    margin-top: 0;
-  }
+    color: $white;
+    margin-top: 32px;
+
+    &--open-modal-btn {
+        margin-top: 0;
+    }
 }

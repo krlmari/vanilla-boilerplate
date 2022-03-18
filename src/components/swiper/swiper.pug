@@ -1,15 +1,15 @@
 include ../counter/counter
 
-mixin swiper
+mixin swiper(props)
     .swiper&attributes(attributes)
         div.swiper-wrapper.swiper__wrapper
             div.swiper-slide
                 div.swiper__slide-content
                 +counter(class='counter0')
-            div.swiper-slide.card
+            div.swiper-slide
                 div.swiper__slide-content
                 +counter(class='counter1')
-            div.swiper-slide.card
+            div.swiper-slide
                 div.swiper__slide-content
                 +counter(class='counter2')
         button.swiper-button-next 
