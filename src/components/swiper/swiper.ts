@@ -14,19 +14,33 @@ class Swiper extends RootComponent {
         const swiperParams: SwiperOptions = {
             slidesPerView: 1,
             spaceBetween: 50,
-            loop: true,
+            speed: 600,
             keyboard: {
                 enabled: true,
             },
+            hashNavigation: true,
+            simulateTouch: false,
             modules: [Navigation],
             navigation: {
                 nextEl: `.${this.name}-button-next`,
                 prevEl: `.${this.name}-button-prev`,
             },
+            on: {
+                slideChange: function (swiper) {
+                    const activeSlideIndex: number = swiper.realIndex;
+                    console.log(activeSlideIndex);
+                },
+            },
         };
 
         const selector = `.${this.name}`;
         const swiper = new OriginalSwiper(selector, swiperParams);
+
+        swiper.on('slideChange', function () {
+            window.location.hash = `#slide${swiper.realIndex}`;
+        });
+
+        swiper.on('hashChange', function () {});
     }
 }
 

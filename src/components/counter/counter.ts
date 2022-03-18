@@ -6,35 +6,37 @@ class Counter extends RootComponent<HTMLDivElement> {
     readonly input: HTMLInputElement;
     readonly prevButton: HTMLButtonElement;
     readonly nextButton: HTMLButtonElement;
-    readonly clickCount: HTMLDivElement;
+    readonly valueCounter: HTMLDivElement;
 
     public count$ = new BehaviorSubject(0);
-    public clickCount$ = new BehaviorSubject(0);
+    public valueCounter$ = new BehaviorSubject(0);
 
     constructor(props: IRootComponent) {
         super(props);
 
-        this.input = this.node.querySelector(`.${this.name}__value`);
+        this.input = this.node.querySelector(`.counter__value`);
         this.prevButton = this.node.querySelector<HTMLButtonElement>(
-            `.${this.name}__button-prev`
+            `.counter__button-prev`
         );
 
         this.nextButton = this.node.querySelector<HTMLButtonElement>(
-            `.${this.name}__button-next`
+            `.counter__button-next`
         );
 
-        this.clickCount = this.node.querySelector(`.${this.name}__value`);
+        this.valueCounter = this.node.querySelector(`.counter__value`);
 
         fromEvent([this.prevButton, this.nextButton], 'click').subscribe(
             (target) => {
                 const button = target.target as HTMLButtonElement;
-                const isPrev = button.classList.contains(
-                    `${this.name}__button-prev`
-                );
+
+                const isPrev =
+                    button.classList.contains(`counter__button-prev`);
 
                 const value = this.count$.getValue() + (isPrev ? -1 : 1);
                 this.setCount(value);
-                this.clickCount$.next(this.clickCount$.getValue() + 1);
+                this.valueCounter$.next(
+                    this.valueCounter$.getValue() + (isPrev ? -1 : 1)
+                );
             }
         );
 
@@ -42,8 +44,8 @@ class Counter extends RootComponent<HTMLDivElement> {
             (target) => (this.input.value = target.toString())
         );
 
-        this.clickCount$.subscribe(
-            (target) => (this.clickCount.innerHTML = `Clicks: ${target}`)
+        this.valueCounter$.subscribe(
+            (target) => (this.valueCounter.innerHTML = `Value: ${target}`)
         );
     }
 

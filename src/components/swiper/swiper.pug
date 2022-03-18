@@ -1,11 +1,16 @@
+include ../counter/counter
+
 mixin swiper
     .swiper&attributes(attributes)
         div.swiper-wrapper.swiper__wrapper
             div.swiper-slide
                 div.swiper__slide-content
+                +counter(class='counter0')
             div.swiper-slide.card
                 div.swiper__slide-content
+                +counter(class='counter1')
             div.swiper-slide.card
                 div.swiper__slide-content
+                +counter(class='counter2')
         button.swiper-button-next 
         button.swiper-button-prev 

@@ -7,15 +7,20 @@
 
   &__slide-content {
     background-color: blueviolet;
-    height: 100%;
+    height: 90%;
     width: 100%;
   }
+}
+
+.swiper-slide {
+  height: 720px;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   margin: 0 5vw;
   position: absolute;
+  top: 40%;
   width: 60px;
   height: 60px;
   border-radius: 60px;

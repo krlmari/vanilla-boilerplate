@@ -1,6 +1,8 @@
 .counter {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 52px;
 
   &__value {
     width: 56px;
