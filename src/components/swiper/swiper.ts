@@ -27,20 +27,13 @@ class Swiper extends RootComponent {
             },
             on: {
                 slideChange: function (swiper) {
-                    const activeSlideIndex: number = swiper.realIndex;
-                    console.log(activeSlideIndex);
+                    window.location.hash = `#slide${swiper.realIndex}`;
                 },
             },
         };
 
         const selector = `.${this.name}`;
         const swiper = new OriginalSwiper(selector, swiperParams);
-
-        swiper.on('slideChange', function () {
-            window.location.hash = `#slide${swiper.realIndex}`;
-        });
-
-        swiper.on('hashChange', function () {});
     }
 }
 
