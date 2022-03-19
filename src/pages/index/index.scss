@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
 
   &__icon {
     width: 80px;
@@ -12,17 +13,4 @@
     color: #afafaf;
     margin-bottom: 20px;
   }
-}
-
-.is-slider {
-  position: relative;
-  width: 100vw;
-  padding: 0 20vw;
-  margin-top: 72px;
-}
-
-.is-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

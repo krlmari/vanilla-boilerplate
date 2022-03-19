@@ -3,22 +3,13 @@
   z-index: 3;
 
   &__text {
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
-    text-align: center;
     color: #42567a;
     margin-bottom: 72px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 
   &__counter {
-    font-family: Roboto, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 128px;
-    line-height: 150px;
     color: #42567a;
     margin-bottom: 108px;
   }

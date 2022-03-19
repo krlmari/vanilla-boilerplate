@@ -1,0 +1,75 @@
+@mixin reset {
+    margin: 0;
+    padding: 0;
+}
+
+$breakponts: (
+    sm: 375px,
+    smd: 500px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1440px,
+    fhd: 1920px,
+    4k: 2560px,
+);
+
+@mixin media-breakpoint-up($name, $px: 0) {
+    @each $breakpoint-name, $resolution in $breakponts {
+        @if $name == $breakpoint-name {
+            @media (min-width: ($resolution + $px)) {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin media-breakpoint-down($name, $px: 0) {
+    @each $breakpoint-name, $resolution in $breakponts {
+        @if $name == $breakpoint-name {
+            @media (max-width: ($resolution + $px)) {
+                @content;
+            }
+        }
+    }
+}
+
+// font
+
+$font-lock-min: 320px !default;
+$font-lock-max: 1200px !default;
+
+@mixin font-size($min, $max: null, $lock-min: $font-lock-min, $lock-max: $font-lock-max) {
+    & {
+        font-size: $min;
+    }
+
+    @if $max {
+        @media (min-width: $lock-min) and (max-width: $lock-max) {
+            & {
+                font-size: calc(
+                    #{$min} + #{num($max) - num($min)} * (100vw - #{$lock-min}) / #{num($lock-max) - num($lock-min)}
+                );
+            }
+        }
+
+        @media (min-width: $lock-max) {
+            & {
+                font-size: $max;
+            }
+        }
+    }
+}
+
+@function num($input) {
+    @return $input / ($input * 0 + 1);
+}
+
+// end
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,18 +3,21 @@
 @import 'swiper/css/navigation';
 @import 'pages';
 @import 'components';
+@import 'mixins';
+@import 'typography';
 @import 'colors';
+@import 'states';
 
-p {
-  margin: 0;
-  padding: 0;
+* {
+  @include reset;
 }
 
 button {
+  border: none;
   cursor: pointer;
   transition: opacity 0.8s;
-}
 
-button:hover {
-  opacity: 0.5;
+  &:hover {
+    opacity: 0.5;
+  }
 }

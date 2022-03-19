@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles/mixins';
 
 .swiper {
   position: static;
@@ -23,22 +24,33 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  margin: 0 5vw;
+  margin: 0 4vw;
   position: absolute;
-  top: calc(50% - 56px);
-  transform: translateY(-50%);
+  top: 50%;
   width: 60px;
   height: 60px;
   border-radius: 60px;
   background-color: $white;
-  border: none;
   color: $color-button;
-  font-size: 24px;
   box-shadow: 0 0 15px rgb(56 119 238 / 10%);
+
+  @include media-breakpoint-up(4k) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include media-breakpoint-down(smd) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 15px;
   font-weight: bold;
+
+  @include media-breakpoint-up(4k) {
+    font-size: 30px;
+  }
 }

@@ -6,6 +6,6 @@ mixin main(props)
     .main&attributes(attributes)
         template.slide-template
             +slide()
-        h1.main__text.h1 Значение счётчика на активном слайде:
-        p.main__counter 0
-        +button('Открыть')(class='button--open-modal-btn')
+        h1.main__text.h-1 Значение счётчика на активном слайде:
+        p.main__counter.main-value-counter 0
+        +button('Открыть')(class='button--open-modal-btn')  

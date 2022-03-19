@@ -1,10 +1,15 @@
 @import '../../styles/colors';
+@import '../../styles/mixins';
 
 .counter {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 52px;
+
+  @include media-breakpoint-down(smd) {
+    margin-top: 32px;
+  }
 
   &__value {
     width: 56px;
@@ -16,10 +21,22 @@
     text-align: center;
     margin-right: 52px;
     margin-left: 52px;
-    font-family: 'Cera Pro', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    appearance: none;
+    color: #42567a;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include media-breakpoint-up(4k) {
+      width: 96px;
+      height: 96px;
+    }
+
+    @include media-breakpoint-down(smd) {
+      margin-right: 32px;
+      margin-left: 32px;
+    }
   }
 
   &__clicks {
@@ -29,8 +46,6 @@
 
   &__button {
     color: white;
-    border: none;
-    cursor: pointer;
     width: 41px;
     height: 41px;
     border-radius: 100%;
@@ -38,5 +53,10 @@
     font-weight: bold;
     font-size: 20px;
     font-family: 'Cera Pro', sans-serif;
+
+    @include media-breakpoint-up(4k) {
+      width: 61px;
+      height: 61px;
+    }
   }
 }
