@@ -1,42 +1,42 @@
 @import '../../styles/colors';
 
 .counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 52px;
 
-    &__value {
-        width: 56px;
-        height: 56px;
-        margin: 0 4px;
-        background: $white;
-        border: 2px solid #303e58;
-        border-radius: 100%;
-        text-align: center;
-        margin-right: 52px;
-        margin-left: 52px;
-        font-family: 'Cera Pro', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-    }
+  &__value {
+    width: 56px;
+    height: 56px;
+    margin: 0 4px;
+    background: $white;
+    border: 2px solid #303e58;
+    border-radius: 100%;
+    text-align: center;
+    margin-right: 52px;
+    margin-left: 52px;
+    font-family: 'Cera Pro', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+  }
 
-    &__clicks {
-        text-align: center;
-        margin-top: 10px;
-    }
+  &__clicks {
+    text-align: center;
+    margin-top: 10px;
+  }
 
-    &__button {
-        color: white;
-        border: none;
-        cursor: pointer;
-        width: 41px;
-        height: 41px;
-        border-radius: 100%;
-        background-color: $color-button;
-        font-weight: bold;
-        font-size: 20px;
-        font-family: 'Cera Pro', sans-serif;
-    }
+  &__button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+    background-color: $color-button;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Cera Pro', sans-serif;
+  }
 }
