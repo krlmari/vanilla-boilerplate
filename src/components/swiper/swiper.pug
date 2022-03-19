@@ -3,17 +3,5 @@ include ../counter/counter
 mixin swiper(props)
     .swiper&attributes(attributes)
         div.swiper-wrapper.swiper__wrapper
-            div.swiper-slide
-                div.swiper__slide-content
-                    +img({src: '/images/image-1.jpg', alt: 'Image 1'}).swiper__image
-                +counter(class='counter0')
-            div.swiper-slide
-                div.swiper__slide-content
-                    +img({src: '/images/image-2.jpg', alt: 'Image 2'}).swiper__image
-                +counter(class='counter1')
-            div.swiper-slide
-                div.swiper__slide-content
-                    +img({src: '/images/image-3.jpg', alt: 'Image 3'}).swiper__image
-                +counter(class='counter2')
         button.swiper-button-next 
         button.swiper-button-prev 

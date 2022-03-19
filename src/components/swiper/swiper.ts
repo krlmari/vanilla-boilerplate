@@ -1,12 +1,14 @@
-import RootComponent from '@common/rootComponent';
-import { IRootComponent } from '@common/types';
-
 import { Navigation, Swiper as OriginalSwiper, SwiperOptions } from 'swiper';
 
+import RootComponent from '@common/rootComponent';
+import { IRootComponent } from '@common/types';
+import Slide from '@components/slide/slide';
+
+import { slides } from './constants';
+
 class Swiper extends RootComponent {
-    readonly swiperSlides: HTMLDivElement;
-    readonly swiperButtonNext: HTMLButtonElement;
-    readonly swiperButtonPrev: HTMLButtonElement;
+    swiper: OriginalSwiper;
+    activeSliderEl: HTMLElement;
 
     constructor(props: IRootComponent) {
         super(props);
@@ -26,14 +28,27 @@ class Swiper extends RootComponent {
                 prevEl: `.${this.name}-button-prev`,
             },
             on: {
-                slideChange: function (swiper) {
-                    window.location.hash = `#slide${swiper.realIndex}`;
+                slideChange: (swiper) => {
+                    this.activeSliderEl = swiper.slides[swiper.activeIndex] as HTMLElement;
                 },
             },
         };
 
-        const selector = `.${this.name}`;
-        const swiper = new OriginalSwiper(selector, swiperParams);
+        this.swiper = new OriginalSwiper(`.${this.name}`, swiperParams);
+        this.renderSlides();
+    }
+
+    renderSlides() {
+        const container = this.node.querySelector('.swiper-wrapper');
+
+        const slidesToRender = slides.map((slideData) => {
+            const slide = new Slide(slideData, '.slide-template');
+            return slide.getView();
+        });
+
+        container.append(...slidesToRender);
+
+        this.activeSliderEl = slidesToRender[0] as HTMLElement;
     }
 }
 

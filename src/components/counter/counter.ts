@@ -15,38 +15,25 @@ class Counter extends RootComponent<HTMLDivElement> {
         super(props);
 
         this.input = this.node.querySelector(`.counter__value`);
-        this.prevButton = this.node.querySelector<HTMLButtonElement>(
-            `.counter__button-prev`
-        );
+        this.prevButton = this.node.querySelector<HTMLButtonElement>(`.counter__button-prev`);
 
-        this.nextButton = this.node.querySelector<HTMLButtonElement>(
-            `.counter__button-next`
-        );
+        this.nextButton = this.node.querySelector<HTMLButtonElement>(`.counter__button-next`);
 
         this.valueCounter = this.node.querySelector(`.counter__value`);
 
-        fromEvent([this.prevButton, this.nextButton], 'click').subscribe(
-            (target) => {
-                const button = target.target as HTMLButtonElement;
+        fromEvent([this.prevButton, this.nextButton], 'click').subscribe((target) => {
+            const button = target.target as HTMLButtonElement;
 
-                const isPrev =
-                    button.classList.contains(`counter__button-prev`);
+            const isPrev = button.classList.contains(`counter__button-prev`);
 
-                const value = this.count$.getValue() + (isPrev ? -1 : 1);
-                this.setCount(value);
-                this.valueCounter$.next(
-                    this.valueCounter$.getValue() + (isPrev ? -1 : 1)
-                );
-            }
-        );
+            const value = this.count$.getValue() + (isPrev ? -1 : 1);
+            this.setCount(value);
+            this.valueCounter$.next(this.valueCounter$.getValue() + (isPrev ? -1 : 1));
+        });
 
-        this.count$.subscribe(
-            (target) => (this.input.value = target.toString())
-        );
+        this.count$.subscribe((target) => (this.input.value = target.toString()));
 
-        this.valueCounter$.subscribe(
-            (target) => (this.valueCounter.innerHTML = `Value: ${target}`)
-        );
+        this.valueCounter$.subscribe((target) => (this.valueCounter.innerHTML = `Value: ${target}`));
     }
 
     public setCount = (count: number) => this.count$.next(count);

@@ -1,43 +1,44 @@
 @import '../../styles/colors';
 
 .swiper {
-    position: static;
-    user-select: none;
+  position: static;
+  user-select: none;
 
-    &__slide-content {
-        width: 100%;
-    }
+  &__slide-content {
+    height: 80%;
+    width: 100%;
+  }
 
-    &__image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .swiper-slide {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    margin: 0 5vw;
-    position: absolute;
-    top: calc(50% - 56px);
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    background-color: $white;
-    border: none;
-    color: $color-button;
-    font-size: 24px;
-    box-shadow: 0 0 15px rgb(56 119 238 / 10%);
+  margin: 0 5vw;
+  position: absolute;
+  top: calc(50% - 56px);
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: $white;
+  border: none;
+  color: $color-button;
+  font-size: 24px;
+  box-shadow: 0 0 15px rgb(56 119 238 / 10%);
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 }
