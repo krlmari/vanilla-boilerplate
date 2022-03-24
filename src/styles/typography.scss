@@ -1,0 +1,38 @@
+@mixin h1 {
+  @include font-size(24px, 54px, 320px, 2560px);
+
+  line-height: 1;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.h-1 {
+  @include h1;
+}
+
+@mixin text-counter-input {
+  @include font-size(20px, 24px, 320px, 2560px);
+
+  font-family: 'Cera Pro', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.modal-value-counter {
+  @include text-counter-input;
+}
+
+@mixin text-counter-h1 {
+  @include font-size(56px, 128px, 1024px, 1920px);
+
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 1.5;
+}
+
+.main-value-counter {
+  @include text-counter-h1;
+}

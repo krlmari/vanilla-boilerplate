@@ -1,0 +1,30 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.button {
+  background-color: $color-button;
+  border-radius: 30px;
+  padding: 20px 40px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: $white;
+  margin-top: 64px;
+
+  @include media-breakpoint-up(4k) {
+    padding: 40px 45px;
+    font-size: 28px;
+    border-radius: 60px;
+  }
+
+  @include media-breakpoint-down(smd) {
+    padding: 15px 20px;
+    font-size: small;
+  }
+
+  &--open-modal-btn {
+    margin-top: 0;
+  }
+}

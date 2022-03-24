@@ -1,0 +1,9 @@
+include ../button/button
+include ../swiper/swiper
+
+mixin modal(props)
+    div.modal&attributes(attributes)
+        +button("Закрыть")(class="modal__button-close") 
+        .is-slider
+            +swiper
+        

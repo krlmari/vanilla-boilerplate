@@ -1,0 +1,16 @@
+.main {
+  text-align: center;
+  z-index: 3;
+
+  &__text {
+    color: #42567a;
+    margin-bottom: 72px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  &__counter {
+    color: #42567a;
+    margin-bottom: 108px;
+  }
+}

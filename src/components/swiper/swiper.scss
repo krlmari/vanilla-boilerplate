@@ -1,0 +1,56 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.swiper {
+  position: static;
+  user-select: none;
+
+  &__slide-content {
+    height: 80%;
+    width: 100%;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  margin: 0 4vw;
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: $white;
+  color: $color-button;
+  box-shadow: 0 0 15px rgb(56 119 238 / 10%);
+
+  @include media-breakpoint-up(4k) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include media-breakpoint-down(smd) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 15px;
+  font-weight: bold;
+
+  @include media-breakpoint-up(4k) {
+    font-size: 30px;
+  }
+}

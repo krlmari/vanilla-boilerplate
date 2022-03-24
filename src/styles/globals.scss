@@ -1,3 +1,23 @@
 @import '~modern-normalize/modern-normalize.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
 @import 'pages';
 @import 'components';
+@import 'mixins';
+@import 'typography';
+@import 'colors';
+@import 'states';
+
+* {
+  @include reset;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.8s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}

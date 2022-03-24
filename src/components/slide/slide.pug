@@ -1,0 +1,7 @@
+include ../counter/counter
+
+mixin slide(props)
+    .slide.swiper-slide&attributes(attributes)
+        div.swiper__slide-content
+            img.swiper__image
+        +counter()
